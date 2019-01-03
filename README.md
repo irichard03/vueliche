@@ -19,8 +19,8 @@ You have vowed to destroy Apathy Abbey, to teach the monks that reside within a 
 
 #### Technologies
 
-JWT - User authentication
-VUE - Front End
-SASSY CSS - User Interface
-Mongoose - Database for storing player crafting inventory.
+* JWT - User authentication
+* VUE - Front End
+* SASSY CSS - User Interface
+* Mongoose - Database for storing player crafting inventory.
 
