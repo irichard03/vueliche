@@ -17,8 +17,10 @@ You've been turned into a Liche! You wear a phylactery around your neck that kee
 
 You have vowed to destroy Apathy Abbey, to teach the monks that reside within a lesson for kicking you out many years ago.  Make your way across the city, you'll need to escape the undesirables quarter first, perhaps you can bribe or defeat the cartell boss? If you can escape, make your way to the Abbey, where your old guidance counselor awaits.
 
-####Technologies
+#### Technologies
 
 JWT - User authentication
 VUE - Front End
+SASSY CSS - User Interface
 Mongoose - Database for storing player crafting inventory.
+
