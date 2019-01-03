@@ -2,19 +2,22 @@
 <template>
   <div class="container">
     <div id="app">
-      <map1 />
+      <TownMap />
+      <PlayerSprite />
     </div>
   </div>
 </template>
 
 <!--script section-->
 <script>
-import map1 from './components/map1.vue'
+import TownMap from './components/TownMap.vue';
+import PlayerSprite from './components/PlayerSprite.vue';
 
 export default {
   name: 'app',
   components: {
-    map1
+    TownMap,
+    PlayerSprite
   }
 }
 </script>

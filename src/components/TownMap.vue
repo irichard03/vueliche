@@ -1,12 +1,13 @@
 <template>
     <div class="maps">
         <img src="map1.png"/>
+        <PlayerSprite />
     </div>
 </template>
 
 <script>
 export default {
-  name: 'map1',
+  name: 'TownMap',
   props: {
    
   }
@@ -15,6 +16,6 @@ export default {
 
 <style>
 img {
-    z-index: 2;
+   
 }
 </style>
