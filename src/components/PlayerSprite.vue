@@ -12,12 +12,7 @@ export default {
   name: 'PlayerSprite',
   props: {
       
-  },
-  methods: {
-      showAlert() {
-          alert("Shazbot!");
-      },
-  },
+  }
 };
 </script>
 

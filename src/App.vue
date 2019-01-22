@@ -2,24 +2,32 @@
 <template>
   <div class="container">
     <div id="app">
-      <TownMap />
-      <PlayerSprite />
+      <GamePage />
     </div>
   </div>
 </template>
 
 <!--script section-->
 <script>
-import TownMap from './components/TownMap.vue';
-import PlayerSprite from './components/PlayerSprite.vue';
-
+import GamePage from './components/GamePage.vue';
 export default {
   name: 'app',
   components: {
-    TownMap,
-    PlayerSprite
+    GamePage,
+  },
+  created: function() {
+    window.addEventListener("keydown",this.getInput);
+  },
+  methods: {
+    getInput: function (event) {
+      if(event.key === "ArrowUp") alert ("arrow up!");
+      if(event.key === "ArrowDown") alert ("arrow down!");
+      if(event.key === "ArrowLeft") alert ("arrow left!");
+      if(event.key === "ArrowRight") alert ("arrow right!");
+    }
   }
-}
+};
+
 </script>
 
 <!--style section-->
@@ -34,8 +42,11 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-left: auto;
-  margin-right: auto;
-  position: relative;
+  top: 0;
+  left: 0;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: black;
 }
 </style>
