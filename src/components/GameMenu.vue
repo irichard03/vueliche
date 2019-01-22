@@ -2,11 +2,11 @@
 <template>
   <div id="GameMenu">
     <div class="container">
-        <h1><a>Vue Liche</a></h1>
-        <h2><a href="http://google.com">Register</a></h2>
-        <h2><a>New Game</a></h2>
-        <h2><a>Load Game</a></h2>
-        <h2><a>Quit</a></h2>
+        <h1>Vue Liche</h1>
+        <h2>Register</h2>
+        <h2>New Game</h2>
+        <h2>Load Game</h2>
+        <h2>Quit</h2>
     </div>
   </div>
 </template>
@@ -32,17 +32,13 @@ export default {
   margin-right: auto;
 }
 
-a {
+.menuItems {
     color: white;
-    text-decoration: none;
-}
-
-a:link:hover {
-    color: white;
- }
-
-a {
-    color:darkslategrey; 
+    display: inline-block;
+    width: 100%;
+    margin-top: 5%;
+    font-size: 1.5em;
+    color: slategray;
 }
 
 </style>

@@ -15,6 +15,9 @@ export default {
  name: 'GamePage',
   components: {
     GameMenu,
+    //toDoRegister
+    //toDoGameWindow
+    
   },
 };
 
