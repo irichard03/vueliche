@@ -10,7 +10,7 @@
 <!--script section-->
 <script>
 //import ComponentName from "path"
-import GameMenu from './GameMenu.vue';
+import GameMenu from '@/components/GameMenu.vue';
 export default {
  name: 'GamePage',
   components: {
@@ -26,7 +26,7 @@ export default {
 <!--style section-->
 <style>
 .container {
-  background-color: black;
+ 
 }
 
 </style>

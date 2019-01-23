@@ -1,11 +1,12 @@
 <!--Template section-->
 <template>
-  <div id="GameMenu">
+  <div id="SignUp">
     <div class="container">
-        <h2><router-link to="signup">Register</router-link></h2>
-        <h2><router-link to="newgame">newgame</router-link></h2>
-        <h2><router-link to="loadgame">loadgame</router-link></h2>
-        <h2><router-link to="credits">credits</router-link></h2>
+        <h1>Please Register</h1>
+        <h2>Name</h2>
+        <h2>Email</h2>
+        <h2>Password</h2>
+        <button>Submit</button>
     </div>
   </div>
 </template>
@@ -15,7 +16,7 @@
 //import ComponentName from "path"
 
 export default {
-  name: 'GameMenu'
+  name: 'SignUp'
 }
 
 </script>
@@ -31,8 +32,8 @@ export default {
   margin-right: auto;
 }
 
-.menuItems {
-    color: white;
+h2,h1 {
+    
     display: inline-block;
     width: 100%;
     margin-top: 5%;

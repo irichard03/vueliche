@@ -2,19 +2,17 @@
 <template>
   <div class="container">
     <div id="app">
-      <GamePage />
+     <h1>Vue Liche</h1>
+     <router-view/>
     </div>
   </div>
 </template>
 
 <!--script section-->
 <script>
-import GamePage from './components/GamePage.vue';
 export default {
   name: 'app',
-  components: {
-    GamePage,
-  },
+  
   created: function() {
     window.addEventListener("keydown",this.getInput);
   },
@@ -47,6 +45,15 @@ export default {
   position: fixed;
   width: 100%;
   height: 100%;
+  margin-left: auto;
+  margin-right: auto;
   background-color: black;
+}
+h1{
+  border: solid 1px white;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  height: 5%;
+  font-size: 2em;
 }
 </style>
