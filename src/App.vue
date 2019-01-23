@@ -50,7 +50,6 @@ export default {
   background-color: black;
 }
 h1{
-  border: solid 1px white;
   margin-top: 0px;
   margin-bottom: 0px;
   height: 5%;

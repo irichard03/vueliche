@@ -25,8 +25,6 @@ export default {
 
 <!--style section-->
 <style>
-.container {
- 
-}
+
 
 </style>

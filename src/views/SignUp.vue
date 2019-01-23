@@ -2,11 +2,14 @@
 <template>
   <div id="SignUp">
     <div class="container">
-        <h1>Please Register</h1>
-        <h2>Name</h2>
-        <h2>Email</h2>
-        <h2>Password</h2>
-        <button>Submit</button>
+        <h2>Please Register</h2>
+        <form id="registration">
+          <input v-model="name" class="registration" placeholder="name">
+          <input v-model="email" class="registration" placeholder="vue@lich.com">
+          <input v-model="password" class="registration" placeholder="password">
+          <input v-model="passwordConfirm" class="registration" placeholder="confirm password">
+          <button class="registration">Submit</button>
+        </form>
     </div>
   </div>
 </template>
@@ -23,22 +26,9 @@ export default {
 
 <!--style section-->
 <style>
-.container {
-  background-color: black;
-  border: darkslategray solid 1px;
-  width: 400px;
-  height: 400px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-h2,h1 {
-    
-    display: inline-block;
-    width: 100%;
-    margin-top: 5%;
-    font-size: 1.5em;
-    color: slategray;
-}
-
+ .registration {
+   display: inline-block;
+   width: 75%;
+   margin-top: 10%;
+ }
 </style>
