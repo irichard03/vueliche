@@ -51,7 +51,7 @@ export default {
 }
 h1{
   margin-top: 0px;
-  margin-bottom: 0px;
+  margin-bottom: 20px;
   height: 5%;
   font-size: 2em;
 }

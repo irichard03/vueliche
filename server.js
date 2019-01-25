@@ -19,7 +19,5 @@ app.use(express.static(path.join(__dirname,"./public")));
 app.use(controller);
 //Controller
 
-
-
 app.listen(PORT, () => {
 });

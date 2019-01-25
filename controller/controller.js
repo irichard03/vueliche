@@ -8,9 +8,17 @@ const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/users";
 mongoose.connect(MONGODB_URI, {useNewUrlParser: true});
 
 router.get("/users", ( request, response) => {
-    db.users.find({}).then((data)=>{
+    db.users.find({}).then((data) => {
         response.send(data);
-    }).catch((error)=>{
+    }).catch((error) => {
+        response.json(error);
+    });
+});
+
+router.get("/authenticate", ( request, response) => {
+    db.users.find({}).then(() => {
+        response.send("Auth route hit");
+    }).catch((error) => {
         response.json(error);
     });
 });
@@ -27,5 +35,7 @@ router.post("/register", ( request, response) => {
         response.json(error);
     });
 });
+
+
 
 module.exports = router;
