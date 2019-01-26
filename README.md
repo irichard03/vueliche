@@ -21,6 +21,8 @@ You have vowed to destroy Apathy Abbey, to teach the monks that reside within a 
 
 * JWT - User authentication
 * VUE - Front End
+* VUEX - State Store for Vue
+* VUE-ROUTER - Routing for Vue
 * SASSY CSS - User Interface
 * Mongoose - Database for storing player crafting inventory.
 

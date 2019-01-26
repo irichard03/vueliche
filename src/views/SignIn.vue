@@ -29,4 +29,14 @@ export default {
    width: 75%;
    margin-top: 10%;
  }
+
+ .container {
+    background-color: black;
+    border: darkslategray solid 1px;
+    width: 400px;
+    height: 400px;
+    margin-left: auto;
+    margin-right: auto;
+ }
+ 
 </style>
