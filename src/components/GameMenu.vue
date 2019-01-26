@@ -2,7 +2,7 @@
 <template>
   <div id="GameMenu">
     <div class="container">
-        <h2><router-link to="newgame">newgame</router-link></h2>
+        <h2><router-link to="signin">signin</router-link></h2>
         <h2><router-link to="loadgame">loadgame</router-link></h2>
         <h2><router-link to="credits">credits</router-link></h2>
     </div>

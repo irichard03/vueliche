@@ -4,6 +4,8 @@
     <div id="container">
        <GameMenu v-if="authenticated" />
        <SignUp v-if="!authenticated" />
+       <h1>Is my state working?</h1>
+       <div>{{count}}</div>
     </div>
   </div>
 </template>
@@ -21,16 +23,12 @@ export default {
     SignUp,
     //toDoRegister
     //toDoGameWindow
-    
   },
-  data(){
-    return{
-      authenticated: true
+  computed: {
+    count() {
+      return this.$store.state.count;
     }
-  },
-
-
-  
+  }
 };
 
 </script>
