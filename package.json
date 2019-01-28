@@ -2,6 +2,12 @@
   "name": "vueliche",
   "version": "0.1.0",
   "private": true,
+  "proxyTable": {
+    "/api": {
+    "target": "http://localhost:3001",
+    "changeOrigin": true
+    }
+  },
   "scripts": {
     "serve": "concurrently \"vue-cli-service serve\" \"yarn start\"",
     "build": "vue-cli-service build",

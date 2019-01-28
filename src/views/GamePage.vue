@@ -2,10 +2,9 @@
 <template>
   <div class="GamePage">
     <div id="container">
-       <SignIn v-if="authorized" />
-       <SignUp v-else />
-       <h1>Is my state working?</h1>
-       <div>{{authorized}}</div>
+      <PlayGame v-if="signed" />
+      <SignIn v-if="authorized && !signed" />
+      <SignUp v-if="!authorized && !signed" />
     </div>
   </div>
 </template>
@@ -13,20 +12,24 @@
 <!--script section-->
 <script>
 //import ComponentName from "path"
+import PlayGame from '@/views/PlayGame.vue';
 import SignIn from '@/views/SignIn.vue';
 import SignUp from '@/views/SignUp.vue';
+
 
 export default {
  name: 'GamePage',
   components: {
     SignIn,
     SignUp,
-    //toDoRegister
-    //toDoGameWindow
+    PlayGame
   },
   computed: {
     authorized() {
       return this.$store.state.authenticated;
+    },
+    signed() {
+      return this.$store.state.loggedIn;
     }
   }
 };

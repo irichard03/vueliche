@@ -9,6 +9,7 @@
           <input v-model="user.passwordConfirm" class="input" placeholder="confirm password">
           <button type="submit">Submit</button>
         </form>
+         <router-link to="/signin">Sign In</router-link>
     </div>
   </div>
 </template>
@@ -16,7 +17,7 @@
 <!--script section-->
 <script>
 //import ComponentName from "path"
-
+const axios = require("axios");
 export default {
   name: 'SignUp',
   data() {
@@ -25,12 +26,19 @@ export default {
         email: "",
         password: "",
         passwordConfirm: ""
-      }
+      },
+      result: null
     }
   },
   methods: {
     handleFormSubmit: function(){
       alert(this.user.email);
+      axios.post("/checkuser", {email: this.user.email} ).then( function(response){
+        // eslint-disable-next-line
+        console.log(response);
+      }).catch((error) => {
+       throw error;
+      });
     }
   }
 }

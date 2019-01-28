@@ -15,9 +15,9 @@ router.get("/users", ( request, response) => {
     });
 });
 
-router.get("/authenticate", ( request, response) => {
-    db.users.find({}).then(() => {
-        response.send("Auth route hit");
+router.post("/checkuser", ( request, response) => {
+    db.users.findOne({ email: request.body.email}).then((data) => {
+        response.json(data);
     }).catch((error) => {
         response.json(error);
     });
