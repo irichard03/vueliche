@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const db = require("../models");
 const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/users";
 mongoose.connect(MONGODB_URI, {useNewUrlParser: true});
+mongoose.connect('mongodb://localhost:27017/vueliche');
 
 router.get("/users", ( request, response) => {
     db.users.find({}).then((data) => {
