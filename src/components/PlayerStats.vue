@@ -28,7 +28,7 @@ export default {
     }
 
       .playerStats {
-        display: inline-block;
+        float: left;
         width: 294px;
         height: 396px;
         background-color: purple;

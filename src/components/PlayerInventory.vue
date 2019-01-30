@@ -28,12 +28,10 @@ export default {
     }
 
     .playerInventory {
-        position: relative;
-        display: inline-block;
+        float: left;
         width: 294px;
         height: 396px;
         align-content: left;
-        margin-top: 4px;
         background-color: purple;
         border: white solid 2px;
         border-radius: 2px;

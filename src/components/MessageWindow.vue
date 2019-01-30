@@ -28,13 +28,12 @@ export default {
     }
 
       .messageWindow {
-        display: inline-block;
+        float: left;
         width: 684px;
         height: 196px;
         background-color: blue;
         border: red solid 1px;
-        margin-left: 4px;
-        margin-right: 4px;
+        
         border: 2px white solid;
         border-radius: 4px
     }

@@ -10,6 +10,7 @@
           <button type="submit">Submit</button>
         </form>
          <router-link to="/signin">Sign In</router-link>
+         <h3>{{displayUser}}</h3>
     </div>
   </div>
 </template>
@@ -17,7 +18,6 @@
 <!--script section-->
 <script>
 //import ComponentName from "path"
-const axios = require("axios");
 export default {
   name: 'SignUp',
   data() {
@@ -32,13 +32,14 @@ export default {
   },
   methods: {
     handleFormSubmit: function(){
-      alert(this.user.email);
-      axios.post("/checkuser", {email: this.user.email} ).then( function(response){
-        // eslint-disable-next-line
-        console.log(response);
-      }).catch((error) => {
-       throw error;
-      });
+     // eslint-disable-next-line
+      console.log(this.user);
+      this.$store.commit("register", this.user);
+    }
+  },
+  computed: {
+    displayUser(){
+      return this.$store.state.currentUser;
     }
   }
 }
@@ -60,6 +61,10 @@ export default {
     height: 400px;
     margin-left: auto;
     margin-right: auto;
+ }
+
+ h3 {
+   color: white;
  }
  
 </style>

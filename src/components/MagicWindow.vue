@@ -28,7 +28,7 @@ export default {
     }
 
      .magicWindow {
-        display: inline-block;
+        float:left;
         width: 294px;
         height: 196px;
         background-color: violet;

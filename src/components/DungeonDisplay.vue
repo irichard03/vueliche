@@ -29,7 +29,6 @@ export default {
     }
 
     .dungeon {
-        position: relative;
         float: left;
         width: 680px;
         height: 392px;

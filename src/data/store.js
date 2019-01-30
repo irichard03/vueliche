@@ -1,12 +1,20 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
+import axios from "axios";
 
 Vue.use(Vuex);
 
 export default new Vuex.Store({
     state: {
        authenticated: false,
-       loggedIn: true,
+       loggedIn: false,
+       exists: false,
+       functioning: "",
+       currentUser: {
+           email: "",
+           password: "",
+           authentication: ""
+       },
        rooms: [
            {
                number: 1,
@@ -29,9 +37,22 @@ export default new Vuex.Store({
 
     },
     mutations: {
-        //NOTHING YET
+        register(state, payload){
+            axios.post("/checkuser", {email: payload.email} ).then((response) => {
+                    if(response) {
+                    state.currentUser.email = payload.email;
+                    state.currentUser.password = payload.password;
+                    state.currentUser.authentication = "cheeseburger";
+                    }
+                    else {
+                        state.functioning = "nope";
+                    }
+              }).catch((error) => {
+               throw error;
+              });
+        }
     },
     actions: {
-        //NOTHING YET
+
     },
 });
