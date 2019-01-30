@@ -2,8 +2,6 @@ const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
 const db = require("../models");
-mongoose.connect('mongodb://localhost:27017/vueliche');
-
 const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/users";
 mongoose.connect(MONGODB_URI, {useNewUrlParser: true});
 

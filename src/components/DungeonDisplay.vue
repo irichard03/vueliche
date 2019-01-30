@@ -15,7 +15,7 @@ export default {
  name: 'DungeonDisplay',
   computed: {
       dungeonDisplay(){
-          return this.$store.state.rooms[0].image;
+        this.$store.state.rooms[$store.state.currentRoom].image;
       }
   },
 };
