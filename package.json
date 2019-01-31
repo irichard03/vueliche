@@ -4,15 +4,15 @@
   "private": true,
   "proxyTable": {
     "/api": {
-      "target": "http://localhost:3001",
-      "changeOrigin": true
+    "target": "http://localhost:3001",
+    "changeOrigin": true
     }
   },
   "scripts": {
     "serve": "concurrently \"vue-cli-service serve\" \"yarn start\"",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint",
-    "start": "concurrently \"vue-cli-service serve\" \"node server",
+    "lint": "vue-cli-service lint", 
+    "start": "node server",
     "dev": "nodemon server"
   },
   "dependencies": {
