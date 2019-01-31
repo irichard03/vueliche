@@ -18,10 +18,21 @@ export default {
   },
   methods: {
     getInput: function (event) {
-      if(event.key === "ArrowUp") alert ("arrow up!");
-      if(event.key === "ArrowDown") alert ("arrow down!");
-      if(event.key === "ArrowLeft") alert ("arrow left!");
-      if(event.key === "ArrowRight") alert ("arrow right!");
+      if(event.key === "ArrowUp") {
+        this.$store.dispatch("nextRoom", "North");
+      }
+      else if(event.key === "ArrowDown"){
+        this.$store.dispatch("nextRoom", "South");
+      }
+
+      else if(event.key === "ArrowLeft") {
+        this.$store.dispatch("nextRoom", "West");
+      }
+
+      else if(event.key === "ArrowRight") {
+        this.$store.dispatch("nextRoom", "East");
+      }
+       
     }
   }
 };

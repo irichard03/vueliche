@@ -4,15 +4,10 @@ const cors = require("cors");
 const PORT = process.env.PORT || 3001;
 const app = express();
 const controller = require("./controller/controller");
-const serveStatic = require('serve-static')
-
-
-
 
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-
 
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
@@ -20,7 +15,6 @@ if (process.env.NODE_ENV === "production") {
   app.use(cors());
   app.use(express.static(path.join(__dirname, "/dist")));
 }
-app.use(express.static(path.join(__dirname,"./public")));
 
 app.use(controller);
 
