@@ -10,7 +10,7 @@ export default new Vuex.Store({
         loggedIn: true,
         exists: false,
         functioning: "yes",
-        currentRoom: 2,
+        currentRoom: 4,
         hasKey: false,
         messager: "",
         currentUser: {
@@ -189,15 +189,18 @@ export default new Vuex.Store({
     nextRoom(state, direction) {
            
             if(direction === "North"){
-                let myRoom = this.state.currentRoom;
-                let myNextRoom = this.state.rooms[myRoom].coords;
-                myNextRoom[1] += 1;
-                this.state.rooms.forEach((element) =>{
-                    if( element.coords === myNextRoom ) {       //add condition for < 2 and nextroom is not locked.
-                        alert(element.coords);
-                    }
-                });
-                
+                let myRoom = state.currentRoom;
+                let myNextRoom = state.rooms[myRoom].coords;
+                if(myNextRoom[1] < 2){
+                    myNextRoom[1] += 1;
+                    state.rooms.forEach((element) =>{
+                        if( element.coords === myNextRoom ) {       //add condition for < 2 and nextroom is not locked.
+                            alert(element.number);
+                        }
+                    });
+                    
+                }
+               
                 
                 
                 //let x = this.state.rooms[myRoom].coords;
