@@ -26,3 +26,27 @@ You have vowed to destroy Apathy Abbey, to teach the monks that reside within a 
 * SASSY CSS - User Interface
 * Mongoose - Database for storing player crafting inventory.
 
+
+### Credits
+
+* All credit due to respective artists & content Creators
+    Room Backgroudn Images: 
+    Gabriel De Aguiar
+    https://opengameart.org/users/nidhoggn 
+    https://www.patreon.com/nidhoggn
+    https://twitter.com/nidhoggn
+    license: https://creativecommons.org/publicdomain/zero/1.0/
+
+    SpellBook:
+    "YD"
+    https://opengameart.org/users/yd
+    license: https://creativecommons.org/publicdomain/zero/1.0/
+
+    Items & Medals
+    Michele "Buch" Bucelli
+    https://opengameart.org/users/buch
+    license: https://creativecommons.org/publicdomain/zero/1.0/ 
+
+
+
+

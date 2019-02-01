@@ -10,9 +10,13 @@ export default new Vuex.Store({
         loggedIn: true,
         exists: false,
         functioning: "yes",
-        currentRoom: 4,
+        currentRoom: 0,
         hasKey: false,
         messager: "",
+        spellbook: {
+            image: "spellbook.png",
+            spells: ["Doom","Chaos","Havoc"]
+        },
         currentUser: {
             email: "",
             password: "",
@@ -22,7 +26,7 @@ export default new Vuex.Store({
             {
                 number: 0,
                 coords: [0, 0],
-                image: "placeholder1.png",
+                image: "back1.png",
                 description: "You awake from the darkness, cold...so very cold.  You feel a great emptiness inside you, like a hunger, only worse.  Before you lies a black phylactery, a grim looking thing.",
                 East: 1,
                 North: -1,
@@ -36,7 +40,7 @@ export default new Vuex.Store({
             {
                 number: 1,
                 coords: [1, 0],
-                image: "placeholder2.png",
+                image: "back2.png",
                 description: "Before you stands Grimaldo, you probably should have paid him back while you were alive.",
                 East: 1,
                 North: 1,
@@ -50,7 +54,7 @@ export default new Vuex.Store({
             {
                 number: 2,
                 coords: [2, 0],
-                image: "placeholder3.png",
+                image: "back3.png",
                 description: "A holy man stands before you, a divine light radiates from his hands as he signs the cross in the air before him.  It's really bright, and you don't have eyelids anymore.",
                 East: -1,
                 North: -1,
@@ -63,7 +67,7 @@ export default new Vuex.Store({
             {
                 number: 3,
                 coords: [0, 1],
-                image: "placeholder4.png",
+                image: "back5.png",
                 description: "You awake from the darkness, cold...so very cold.  You feel a great emptiness inside you, like a hunger, only worse.  Before you lies a black phylactery, a grim looking thing.",
                 East: -1,
                 North: 1,
@@ -77,7 +81,7 @@ export default new Vuex.Store({
             {
                 number: 4,
                 coords: [1, 1],
-                image: "placeholder5.png",
+                image: "back4.png",
                 description: "Before you stands Grimaldo, you probably should have paid him back while you were alive.",
                 East: 1,
                 North: -1,
@@ -90,7 +94,7 @@ export default new Vuex.Store({
             {
                 number: 5,
                 coords: [2, 1],
-                image: "placeholder6.png",
+                image: "back6.png",
                 description: "A holy man stands before you, a divine light radiates from his hands as he signs the cross in the air before him.  It's really bright, and you don't have eyelids anymore.",
                 East: -1,
                 North: 1,
@@ -102,8 +106,8 @@ export default new Vuex.Store({
 
             {
                 number: 6,
-                coords: [2, 0],
-                image: "placeholder7.png",
+                coords: [0, 2],
+                image: "back7.png",
                 description: "You awake from the darkness, cold...so very cold.  You feel a great emptiness inside you, like a hunger, only worse.  Before you lies a black phylactery, a grim looking thing.",
                 East: 1,
                 North: -1,
@@ -115,8 +119,8 @@ export default new Vuex.Store({
 
             {
                 number: 7,
-                coords: [2, 1],
-                image: "placeholder8.png",
+                coords: [1, 2],
+                image: "back8.png",
                 description: "Before you stands Grimaldo, you probably should have paid him back while you were alive.",
                 East: -1,
                 North: -1,
@@ -129,7 +133,7 @@ export default new Vuex.Store({
             {
                 number: 8,
                 coords: [2, 2],
-                image: "placeholder9.png",
+                image: "back9.png",
                 description: "A holy man stands before you, a divine light radiates from his hands as he signs the cross in the air before him.  It's really bright, and you don't have eyelids anymore.",
                 East: -1,
                 North: -1,
@@ -156,146 +160,75 @@ export default new Vuex.Store({
             });
         },
 
-        getRoom(state, position) {
-            for (let i = 0; i < state.rooms.length; i++) {
-                if (state.rooms[i] === position) {
-                    return i;
-                }
-            }
+        changeRoom(state, currentRoom) {
+            this.state.currentRoom = currentRoom;
         },
-
-        addX(state, sign) {
-            let temp;
-            if (sign > 0) {
-                temp = state.rooms[state.currentRoom].coords[0] + 1;
-                return temp;
-            }
-            else
-                temp = state.rooms[state.currentRoom].coords[0] - 1;
-            return temp;
-        },
-
-        addY(state, sign) {
-            let temp;
-            if (sign > 0) {
-                temp = state.rooms[state.currentRoom].coords[1] + 1;
-                return temp;
-            }
-            else
-                temp = state.rooms[state.currentRoom].coords[1] - 1;
-            return temp;
-        },
-
-    nextRoom(state, direction) {
-           
-            if(direction === "North"){
-                let myRoom = state.currentRoom;
-                let myNextRoom = state.rooms[myRoom].coords;
-                if(myNextRoom[1] < 2){
-                    myNextRoom[1] += 1;
-                    state.rooms.forEach((element) =>{
-                        if( element.coords === myNextRoom ) {       //add condition for < 2 and nextroom is not locked.
-                            alert(element.number);
-                        }
-                    });
-                    
-                }
-               
-                
-                
-                //let x = this.state.rooms[myRoom].coords;
-                //x[1] +=1;
-                //alert(x);
-                
-               // alert(this.state.rooms[myRoom].coords);
-                //alert(myNextRoom);
-                //   this.state.rooms.forEach((element)=>{
-                //   myRoom = element;
-                //   myNextRoom = element.coords[1] +1;
-                   
-                   
-
-                 
-               }
-                /** 
-                let intendedRoom = this.getRoom(state, playerPosition);
-                if (state.rooms[intendedRoom].requiresKey) {
-                    if (state.hasKey) {
-                        this.removeKey(state);
-                        return state.currentRoom = state.rooms[intendedRoom].number;
-                    }
-                    else {
-                        return state.messager = "You need a Key to go this direction.";
-                    }
-                }
-                else {
-                    return state.currentRoom = state.rooms[intendedRoom].number;
-                }
-            }
-            else if (direction === "South") {
-                let playerPosition = this.addY(state, -1);
-                let intendedRoom = this.getRoom(state, playerPosition);
-                if (state.rooms[intendedRoom].requiresKey) {
-                    if (state.hasKey) {
-                        this.removeKey(state);
-                        return state.currentRoom = state.rooms[intendedRoom].number;
-                    }
-                    else {
-                        return state.messager = "You need a Key to go this direction.";
-                    }
-                }
-                else {
-                    return state.currentRoom = state.rooms[intendedRoom].number;
-                }
-            }
-            else if (direction === "East") {
-                let playerPosition = this.addX(state, 1);
-                let intendedRoom = this.getRoom(state, playerPosition);
-                if (state.rooms[intendedRoom].requiresKey) {
-                    if (state.hasKey) {
-                        this.removeKey(state);
-                        return state.currentRoom = state.rooms[intendedRoom].number;
-                    }
-                    else {
-                        return state.messager = "You need a Key to go this direction.";
-                    }
-                }
-                else {
-                    return state.currentRoom = state.rooms[intendedRoom].number;
-                }
-            }
-            else if (direction === "West") {
-                let playerPosition = this.addX(state, -1);
-                let intendedRoom = this.getRoom(state, playerPosition);
-                if (state.rooms[intendedRoom].requiresKey) {
-                    if (state.hasKey) {
-                        this.removeKey(state);
-                        return state.currentRoom = state.rooms[intendedRoom].number;
-                    }
-                    else {
-                        return state.messager = "You need a Key to go this direction.";
-                    }
-                }
-                else {
-                    return state.currentRoom = state.rooms[intendedRoom].number;
-                }
-            */
-            
-            
-        },
-
         removeKey(state) {
-            return state.hasKey = false;
+            state.hasKey = false;
         },
 
         addkey(state) {
-            return state.hasKey = true;
+            state.hasKey = true;
         },
     },
     actions: {
-        nextRoom(state, direction) {
-            state.commit("nextRoom", direction);
-        }
-    },
+        nextRoom(context, direction) {
+            if (direction === "North") {
+                let myRoom = context.state.currentRoom;
+                let myNextRoom = context.state.rooms[myRoom].coords;
+                if (context.state.rooms[myRoom].coords[1] < 2) {
+                    let y = context.state.rooms[myRoom].coords[1] + 1;
+                    context.state.rooms.forEach((element) => {
+                        if (element.coords[0] === myNextRoom[0] && element.coords[1] === y) {      
+                            context.commit("changeRoom", element.number);
+                        }
+                    });
 
+                }
+
+            }
+            else if (direction === "South") {
+                let myRoom = context.state.currentRoom;
+                let myNextRoom = context.state.rooms[myRoom].coords;
+                if (context.state.rooms[myRoom].coords[1] > 0) {
+                    let y = context.state.rooms[myRoom].coords[1] - 1;
+                    context.state.rooms.forEach((element) => {
+                        if (element.coords[0] === myNextRoom[0] && element.coords[1] === y) {      
+                            context.commit("changeRoom", element.number);
+                        }
+                    });
+
+                }
+
+            }
+
+            else if (direction === "East") {
+                let myRoom = context.state.currentRoom;
+                let myNextRoom = context.state.rooms[myRoom].coords;
+                if (context.state.rooms[myRoom].coords[0] < 2) {
+                    let x = context.state.rooms[myRoom].coords[0] + 1;
+                    context.state.rooms.forEach((element) => {
+                        if (element.coords[1] === myNextRoom[1] && element.coords[0] === x) {      
+                            context.commit("changeRoom", element.number);
+                        }
+                    });
+
+                }
+
+            }
+
+            else if (direction === "West") {
+                let myRoom = context.state.currentRoom;
+                let myNextRoom = context.state.rooms[myRoom].coords;
+                if (context.state.rooms[myRoom].coords[0] > 0) {
+                    let x = context.state.rooms[myRoom].coords[0] - 1;
+                    context.state.rooms.forEach((element) => {
+                        if (element.coords[1] === myNextRoom[1] && element.coords[0] === x) {      
+                            context.commit("changeRoom", element.number);
+                        }
+                    });
+                }
+            }
+        }
+    }
 });
