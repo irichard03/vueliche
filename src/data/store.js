@@ -12,7 +12,13 @@ export default new Vuex.Store({
         functioning: "yes",
         currentRoom: 0,
         hasKey: false,
-        inventory: "skeleton.png",
+        inventory: {
+           hat: "nothing.png",
+           staff: "nothing.png",
+           cape: "nothing.png",
+           image: "skeleton.png"
+
+        },
         messager: "",
         spellbook: {
             image: "spellbook.png"
@@ -165,7 +171,7 @@ export default new Vuex.Store({
                 South: 1,
                 requiresKey: false,
                 locked: false,
-                monster: "Rogu  e.png",
+                monster: "Skeleton.png",
                 monster2: "Skeleton.png",
                 treasure: "downSkull.png"
             },
