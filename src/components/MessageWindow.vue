@@ -2,7 +2,7 @@
 <template>
   <div class="messageWindow">
     <div id="container">
-        <p>Before you lies the abyss...</p>
+       <p class="messages">"{{descriptionDisplay}}"</p>
     </div>
   </div>
 </template>
@@ -17,13 +17,22 @@ export default {
  name: 'MessageWindow',
   components: {
   },
+
+  computed: {
+    descriptionDisplay(){
+          return this.$store.state.rooms[this.$store.state.currentRoom].description;
+      }
+  }
+
+  
+
 };
 
 </script>
 
 <!--style section-->
 <style>
-    p {
+    .messages {
         color: white;
     }
 

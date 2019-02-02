@@ -3,6 +3,7 @@
   <div class="playerInventory">
     <div id="container">
         <p>Inventory</p>
+        <img class="inventory" v-bind:src="inventoryDisplay" />
     </div>
   </div>
 </template>
@@ -17,6 +18,11 @@ export default {
  name: 'PlayerInventory',
   components: {
   },
+  computed: {
+      inventoryDisplay(){
+          return this.$store.state.inventory;
+      },
+  }
 };
 
 </script>

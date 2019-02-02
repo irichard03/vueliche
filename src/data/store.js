@@ -12,10 +12,10 @@ export default new Vuex.Store({
         functioning: "yes",
         currentRoom: 0,
         hasKey: false,
+        inventory: "skeleton.png",
         messager: "",
         spellbook: {
-            image: "spellbook.png",
-            spells: ["Doom","Chaos","Havoc"]
+            image: "spellbook.png"
         },
         currentUser: {
             email: "",
@@ -33,8 +33,11 @@ export default new Vuex.Store({
                 West: -1,
                 South: -1,
                 requiresKey: false,
-                locked: false
-
+                locked: false,
+                cleard: false,
+                monster: "Monk.png",
+                monster2: "Rogue.png",
+                treasure: "redchest.png"
             },
 
             {
@@ -47,7 +50,10 @@ export default new Vuex.Store({
                 West: 1,
                 South: -1,
                 requiresKey: false,
-                locked: false
+                locked: false,
+                monster: "Mage.png",
+                monster2: "Rogue.png",
+                treasure: "skullCoin.png"
 
             },
 
@@ -61,7 +67,10 @@ export default new Vuex.Store({
                 West: 1,
                 South: -1,
                 requiresKey: false,
-                locked: false
+                locked: false,
+                monster: "Rogue.png",
+                monster2: "Monk.png",
+                treasure: "downSkull.png"
             },
 
             {
@@ -74,7 +83,10 @@ export default new Vuex.Store({
                 West: -1,
                 South: -1,
                 requiresKey: false,
-                locked: false
+                locked: false,
+                monster: "Monk.png",
+                monster2: "Monk.png",
+                treasure: "greenchest.png"
 
             },
 
@@ -88,7 +100,10 @@ export default new Vuex.Store({
                 West: 1,
                 South: 1,
                 requiresKey: true,
-                locked: true
+                monster: "Rogue.png",
+                monster2: "Rogue.png",
+                treasure: "downSkull.png"
+                
             },
 
             {
@@ -101,7 +116,10 @@ export default new Vuex.Store({
                 West: 1,
                 South: -1,
                 requiresKey: false,
-                locked: false
+                locked: false,
+                monster: "Mage.png",
+                monster2: "Mage.png",
+                treasure: "downSkull.png"
             },
 
             {
@@ -114,7 +132,10 @@ export default new Vuex.Store({
                 West: -1,
                 South: 1,
                 requiresKey: true,
-                locked: true
+                locked: true,
+                monster: "Monk.png",
+                monster2: "Skeleton.png",
+                treasure: "downSkull.png"
             },
 
             {
@@ -127,7 +148,10 @@ export default new Vuex.Store({
                 West: -1,
                 South: -1,
                 requiresKey: false,
-                locked: false
+                locked: false,
+                monster: "Mage.png",
+                monster2: "Skeleton.png",
+                treasure: "downSkull.png"
             },
 
             {
@@ -140,7 +164,10 @@ export default new Vuex.Store({
                 West: -1,
                 South: 1,
                 requiresKey: false,
-                locked: false
+                locked: false,
+                monster: "Rogu  e.png",
+                monster2: "Skeleton.png",
+                treasure: "downSkull.png"
             },
         ],
     },

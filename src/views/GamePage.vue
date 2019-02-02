@@ -2,7 +2,7 @@
 <template>
   <div class="GamePage">
     <div id="container">
-      <PlayGame v-if="signed" />
+      <GameMenu v-if="signed" />
       <SignIn v-if="authorized && !signed" />
       <SignUp v-if="!authorized && !signed" />
     </div>
@@ -12,7 +12,7 @@
 <!--script section-->
 <script>
 //import ComponentName from "path"
-import PlayGame from '@/views/PlayGame.vue';
+import GameMenu from '@/components/GameMenu.vue';
 import SignIn from '@/views/SignIn.vue';
 import SignUp from '@/views/SignUp.vue';
 
@@ -22,7 +22,7 @@ export default {
   components: {
     SignIn,
     SignUp,
-    PlayGame
+    GameMenu
   },
   computed: {
     authorized() {
