@@ -3,12 +3,14 @@
   <div class="playerInventory">
     <div id="container">
         <h1 class="inventoryText">Inventory</h1>
-        <img class="inventory" v-bind:src="inventoryDisplay" />
-        <img class="hat" v-bind:src="hatDisplay" />
-        <img class="staff" v-bind:src="staffDisplay" />
-        <img class="cape" v-bind:src="capeDisplay" />
-        <img class="leftSkull" src="leftSkull.png" />
-        <img class="rightSkull" src="rightSkull.png" />
+     
+            <img class="inventory" v-bind:src="inventoryDisplay" />
+            <img class="hat" v-bind:src="hatDisplay" />
+            <img class="staff" v-bind:src="staffDisplay" />
+            <img class="cape" v-bind:src="capeDisplay" />
+            <img class="leftSkull" src="leftSkull.png" />
+            <img class="rightSkull" src="rightSkull.png" />
+        
     </div>
   </div>
 </template>

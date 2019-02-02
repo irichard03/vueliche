@@ -55,8 +55,7 @@ export default {
         width: 684px;
         height: 396px;
         background-color: rgb(0, 95, 130);
-        border: red solid 1px;
-        border: white solid 2px;
+        border: gold groove 2px;
         border-radius: 2px;
     }
 
