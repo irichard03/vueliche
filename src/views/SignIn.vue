@@ -2,12 +2,12 @@
 <template>
   <div id="SignIn">
     <div class="container">
-        <form id="login">
-          <input v-model="name" type="text" class="registration" placeholder="name">
-          <input v-model="password" type="password" class="registration" placeholder="password">
-          <button type="submit" class="login">Login</button>
-        </form>
-         <router-link to="/signup">Sign Up</router-link>
+      <form @submit.prevent="handleFormSubmit">
+        <input v-model="email" type="text" class="registration" placeholder="emai">
+        <input v-model="password" type="password" class="registration" placeholder="password">
+        <button type="submit" class="login">Login</button>
+      </form>
+      <router-link to="/signup">Sign Up</router-link>
     </div>
   </div>
 </template>
@@ -17,31 +17,68 @@
 //import ComponentName from "path"
 
 export default {
-  name: 'SignIn',
+  name: "SignIn",
+  data() {
+    return {
+      user: {
+        email: "",
+        password: ""
+      }
+    };
+  },
+
   computed: {
-    displayMessenger(){
+    displayMessenger() {
       return this.$store.state.messenger;
     }
-  }
-}
+  },
 
+  methods: {
+    handleFormSubmit: function() {
+      // eslint-disable-next-line
+      console.log(
+        "password:" +
+          this.user.password +
+          "\nConfirm:" +
+          this.user.passwordConfirm
+      );
+
+      if (!this.user.password && !this.user.email) {
+        this.$store.dispatch(
+          "UpdateMessengerState",
+          "You must enter a username AND password."
+        );
+      } else if (!this.user.email) {
+        this.$store.dispatch(
+          "UpdateMessengerState",
+          "You must enter your email."
+        );
+      } else if (!this.user.password) {
+        this.$store.dispatch(
+          "UpdateMessengerState",
+          "You must enter your password"
+        );
+      }
+      this.$store.dispatch("register", this.user);
+    }
+  }
+};
 </script>
 
 <!--style section-->
 <style>
- .registration {
-   display: inline-block;
-   width: 75%;
-   margin-top: 10%;
- }
+.registration {
+  display: inline-block;
+  width: 75%;
+  margin-top: 10%;
+}
 
- .container {
-    background-color: black;
-    border: darkslategray solid 1px;
-    width: 400px;
-    height: 400px;
-    margin-left: auto;
-    margin-right: auto;
- }
- 
+.container {
+  background-color: black;
+  border: darkslategray solid 1px;
+  width: 400px;
+  height: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
 </style>

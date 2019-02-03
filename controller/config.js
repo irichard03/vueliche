@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 module.exports = {
-    "secret": "AllenTownIronPigs"
+    "secret": process.env.SECRET
 };

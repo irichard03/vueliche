@@ -8,15 +8,8 @@ const userSchema = new Schema({
   password: {
     type: String,
     required: true
-  },
-  authorization: {
-    type: String,
-    required: false
-  },
-  lastLogin: {
-    type: Date,
-    required: false
   }
+  
 });
 
 const users = mongoose.model("users", userSchema);

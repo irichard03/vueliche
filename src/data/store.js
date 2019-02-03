@@ -8,7 +8,6 @@ export default new Vuex.Store({
     state: {
         authenticated: false,
         loggedIn: false,
-        exists: false,
         currentRoom: 0,
         hasKey: false,
         inventory: {
@@ -177,104 +176,113 @@ export default new Vuex.Store({
         ],
     },
     mutations: {
-        register(state, payload) {
-            axios.post("/checkuser", { email: payload.email }).then((response) => {
-               
-                 //eslint-disable-next-line
-                 console.log(response);
-
-                if (response.data === null) {
-                    //eslint-disable-next-line
-                    console.log("this happened");
-                    axios.post("/register", payload).then((response) => {
-                        if(response.data ===null){
-                            state.messenger = "There was a problem registering, please try again later.";
-                        }
-                        else {
-                            state.authenticated = true; 
-                            state.messenger = "Successfully registered please sign in.";
-                        }
-                    });
-                }
-                else {
-                    state.messenger = "A user with that email address already exists, please sign in.";
-                    state.authenticated = true;
-                }
-            }).catch((error) => {
-                throw error;
-            });
-        },
+        
 
         changeRoom(state, currentRoom) {
             this.state.currentRoom = currentRoom;
         },
 
-        removeKey(state) {
-            state.hasKey = false;
+        updateMessengerState(state, message){
+            this.state.messenger = message;
         },
 
-        addkey(state) {
-            state.hasKey = true;
+        updateAuthState(state, truthiness){
+            this.state.authenticated = truthiness;
         },
+
+        updateLoggedInState(state, truthiness){
+            this.state.loggedIn = truthiness;
+        }
+
     },
     actions: {
-        nextRoom(context, direction) {
-            if (direction === "North") {
+        nextRoom( context, direction ) {
+            if ( direction === "North" ) {
                 let myRoom = context.state.currentRoom;
                 let myNextRoom = context.state.rooms[myRoom].coords;
-                if (context.state.rooms[myRoom].coords[1] < 2) {
+                if ( context.state.rooms[myRoom].coords[1] < 2 ) {
                     let y = context.state.rooms[myRoom].coords[1] + 1;
-                    context.state.rooms.forEach((element) => {
-                        if (element.coords[0] === myNextRoom[0] && element.coords[1] === y) {      
-                            context.commit("changeRoom", element.number);
+                    context.state.rooms.forEach( (element) => {
+                        if ( element.coords[0] === myNextRoom[0] && element.coords[1] === y ) {      
+                            context.commit( "changeRoom", element.number );
                         }
                     });
 
                 }
 
             }
-            else if (direction === "South") {
+            else if ( direction === "South" ) {
                 let myRoom = context.state.currentRoom;
                 let myNextRoom = context.state.rooms[myRoom].coords;
-                if (context.state.rooms[myRoom].coords[1] > 0) {
+                if ( context.state.rooms[myRoom].coords[1] > 0 ) {
                     let y = context.state.rooms[myRoom].coords[1] - 1;
-                    context.state.rooms.forEach((element) => {
-                        if (element.coords[0] === myNextRoom[0] && element.coords[1] === y) {      
-                            context.commit("changeRoom", element.number);
+                    context.state.rooms.forEach( (element) => {
+                        if ( element.coords[0] === myNextRoom[0] && element.coords[1] === y ) {      
+                            context.commit( "changeRoom", element.number );
                         }
                     });
-
                 }
-
             }
 
-            else if (direction === "East") {
+            else if ( direction === "East" ) {
                 let myRoom = context.state.currentRoom;
                 let myNextRoom = context.state.rooms[myRoom].coords;
-                if (context.state.rooms[myRoom].coords[0] < 2) {
+                if ( context.state.rooms[myRoom].coords[0] < 2 ) {
                     let x = context.state.rooms[myRoom].coords[0] + 1;
-                    context.state.rooms.forEach((element) => {
-                        if (element.coords[1] === myNextRoom[1] && element.coords[0] === x) {      
-                            context.commit("changeRoom", element.number);
+                    context.state.rooms.forEach( (element) => {
+                        if ( element.coords[1] === myNextRoom[1] && element.coords[0] === x ) {      
+                            context.commit( "changeRoom", element.number );
                         }
                     });
-
                 }
-
             }
 
-            else if (direction === "West") {
+            else if ( direction === "West" ) {
                 let myRoom = context.state.currentRoom;
                 let myNextRoom = context.state.rooms[myRoom].coords;
-                if (context.state.rooms[myRoom].coords[0] > 0) {
+                if ( context.state.rooms[myRoom].coords[0] > 0 ) {
                     let x = context.state.rooms[myRoom].coords[0] - 1;
-                    context.state.rooms.forEach((element) => {
-                        if (element.coords[1] === myNextRoom[1] && element.coords[0] === x) {      
-                            context.commit("changeRoom", element.number);
+                    context.state.rooms.forEach( (element) => {
+                        if ( element.coords[1] === myNextRoom[1] && element.coords[0] === x ) {      
+                            context.commit( "changeRoom", element.number );
                         }
                     });
                 }
             }
+        },
+
+        register( context, payload ) {
+            axios.post( "/checkuser", { email: payload.email } ).then( (response) => {
+                if (response.data === null) {
+                    axios.post( "/register", payload ).then( (response) => {
+                        if( response.data === null ) {
+                            context.commit( "updateMessengerState", "There was a problem registering, please try again later." );
+                        }
+                        else {
+                            context.commit( "updateAuthState", true );
+                            context.commit( "updateMessengerState", "Successfully registered please sign in." );
+                        }
+                    });
+                }
+                else {
+                    context.commit( "updateAuthState", true );
+                    context.commit( "updateMessengerState", "A user with that email address already exists, please sig n in." );
+                }
+            }).catch( (error) => {
+                throw error;
+            });
+        },
+
+        updateMessenger( context, payload) {
+            context.commit( "updateMessengerState", payload);
+        },
+
+        updateAuthState(context, payload) {
+            context.commit("updateAuthState", payload);
+        },
+
+        updateLoggedInState(context, payload) {
+            context.commit("updateLoggedInState", payload);
         }
     }
 });
