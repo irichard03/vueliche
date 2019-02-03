@@ -42,11 +42,7 @@ export default {
       MagicWindow
       
   },
-  computed: {
-    authorized() {
-      return this.$store.state.authenticated;
-    }
-  }
+ 
 };
 
 </script>

@@ -10,7 +10,7 @@
           <button type="submit">Submit</button>
         </form>
          <router-link to="/signin">Sign In</router-link>
-         <h3>{{displayUser}}</h3>
+         <h3>{{displayMessenger}}</h3>
     </div>
   </div>
 </template>
@@ -25,7 +25,8 @@ export default {
       user: {
         email: "",
         password: "",
-        passwordConfirm: ""
+        passwordConfirm: "",
+        authentication: "cheeseburger"
       },
       result: null
     }
@@ -33,14 +34,17 @@ export default {
   methods: {
     handleFormSubmit: function(){
      // eslint-disable-next-line
-      console.log(this.user);
       this.$store.commit("register", this.user);
     }
   },
   computed: {
-    displayUser(){
-      return this.$store.state.currentUser;
+    displayMessenger(){
+      return this.$store.state.messenger;
     }
+  },
+
+  mounted: function() {
+    localStorage.removeItem("auth");
   }
 }
 

@@ -2,7 +2,6 @@
 <template>
   <div id="GameMenu">
     <div class="container">
-        <h2><router-link to="/signup">Sign In</router-link></h2>
         <h2><router-link to="/playgame">Start</router-link></h2>
         <h2><router-link to="/credits">Credits</router-link></h2>
     </div>

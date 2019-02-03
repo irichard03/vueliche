@@ -6,10 +6,9 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
     state: {
-        authenticated: true,
-        loggedIn: true,
+        authenticated: false,
+        loggedIn: false,
         exists: false,
-        functioning: "yes",
         currentRoom: 0,
         hasKey: false,
         inventory: {
@@ -19,7 +18,7 @@ export default new Vuex.Store({
            image: "skeleton.png"
 
         },
-        messager: "",
+        messenger: "Please register",
         spellbook: {
             image: "spellbook.png"
         },
@@ -180,13 +179,26 @@ export default new Vuex.Store({
     mutations: {
         register(state, payload) {
             axios.post("/checkuser", { email: payload.email }).then((response) => {
-                if (response) {
-                    state.currentUser.email = payload.email;
-                    state.currentUser.password = payload.password;
-                    state.currentUser.authentication = "cheeseburger";
+               
+                 //eslint-disable-next-line
+                 console.log(response);
+
+                if (response.data === null) {
+                    //eslint-disable-next-line
+                    console.log("this happened");
+                    axios.post("/register", payload).then((response) => {
+                        if(response.data ===null){
+                            state.messenger = "There was a problem registering, please try again later.";
+                        }
+                        else {
+                            state.authenticated = true; 
+                            state.messenger = "Successfully registered please sign in.";
+                        }
+                    });
                 }
                 else {
-                    state.functioning = "no";
+                    state.messenger = "A user with that email address already exists, please sign in.";
+                    state.authenticated = true;
                 }
             }).catch((error) => {
                 throw error;
@@ -196,6 +208,7 @@ export default new Vuex.Store({
         changeRoom(state, currentRoom) {
             this.state.currentRoom = currentRoom;
         },
+
         removeKey(state) {
             state.hasKey = false;
         },

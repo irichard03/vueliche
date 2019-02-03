@@ -2,7 +2,6 @@
 <template>
   <div id="SignIn">
     <div class="container">
-        <h2>Please Register</h2>
         <form id="login">
           <input v-model="name" type="text" class="registration" placeholder="name">
           <input v-model="password" type="password" class="registration" placeholder="password">
@@ -18,7 +17,12 @@
 //import ComponentName from "path"
 
 export default {
-  name: 'SignIn'
+  name: 'SignIn',
+  computed: {
+    displayMessenger(){
+      return this.$store.state.messenger;
+    }
+  }
 }
 
 </script>

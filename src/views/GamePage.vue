@@ -2,9 +2,9 @@
 <template>
   <div class="GamePage">
     <div id="container">
-      <GameMenu v-if="signed" />
-      <SignIn v-if="authorized && !signed" />
-      <SignUp v-if="!authorized && !signed" />
+      <GameMenu v-if="loggedIn" />
+      <SignIn v-if="exists" />
+      <SignUp v-if="!authorized && !signedIn" />
     </div>
   </div>
 </template>
@@ -24,13 +24,28 @@ export default {
     SignUp,
     GameMenu
   },
+  
   computed: {
     authorized() {
       return this.$store.state.authenticated;
     },
-    signed() {
+    loggedIn() {
       return this.$store.state.loggedIn;
+    },
+    exists() {
+      return this.$store.state.exists;
     }
+  },
+  created: function () {
+    //localStorage.setItem( "authcode", "thisIsMyAuthCode");
+    localStorage.setItem("auth", "blah123");
+    const auth = localStorage.getItem("auth");
+    if(auth){
+      this.state.$store.authenticated = true;
+    }
+    else {
+      alert("Not authorized");
+    }    
   }
 };
 
