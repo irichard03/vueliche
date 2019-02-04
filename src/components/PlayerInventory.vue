@@ -53,7 +53,7 @@ export default {
         width: 180;
         height: 180px;
         margin-top: 180px;
-        border: solid 1px gold;
+        border-bottom: groove 2px wheat;
         border-radius: 4px;
     }
     .hat {
@@ -85,7 +85,7 @@ export default {
         width: 294px;
         height: 396px;
         align-content: left;
-        background-color: black;
+        background-image: linear-gradient(black,#012a00);
         border: wheat groove 2px;
         border-radius: 2px;
     }
@@ -102,6 +102,9 @@ export default {
         width: 100px;
         margin-left: 40px;
         margin-top: -40px;
+        border: 2px wheat groove;
+        border-radius: 180px;
+
     }
     .rightSkull {
         position: fixed;
@@ -109,5 +112,8 @@ export default {
         width: 100px;
         margin-left: 730px;
         margin-top: -40px;
+        border: 2px wheat groove;
+        border-radius: 180px;
+
     }
 </style>

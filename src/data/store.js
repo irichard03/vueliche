@@ -10,6 +10,18 @@ export default new Vuex.Store({
         loggedIn: false,
         currentRoom: 0,
         hasKey: false,
+        stats: {
+            lifeForce: 6,
+            spellPower: 10,
+            skullTokens: 0,
+            knownSpells: 2,
+            spells:{
+                chaos: true,
+                doom: false,
+                havok: true
+            }
+            
+        },
         token: null,
         notStarted: true,
         inventory: {

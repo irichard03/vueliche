@@ -2,7 +2,9 @@
 <template>
   <div class="messageWindow">
     <div id="container">
-       <p class="messages">"{{descriptionDisplay}}"</p>
+       <marquee behavior="scroll" class="messages" direction="up" scrollamount="1">{{descriptionDisplay}}</marquee>
+
+       
     </div>
   </div>
 </template>
@@ -34,6 +36,11 @@ export default {
 <style>
     .messages {
         color: white;
+        height: 180px;
+        margin-left: 20px;
+        margin-right: 20px;
+        text-align: left;
+        font-size: 1.5em;
     }
 
       .messageWindow {
@@ -42,7 +49,7 @@ export default {
         height: 196px;
         background-color: blue;
         border: red solid 1px;
-        
+        background-image: linear-gradient(blue,#002b3d);
         border: 2px wheat solid;
         border-radius: 4px
     }

@@ -5,18 +5,10 @@
         <img class="spellBook" v-bind:src="spellDisplay" />
         <div class="spells">
             <h1 class="bookOfDead">Necronomicon</h1>
-            <div class="page">
-                <p class="spell">Chaos</p>
-                <p class="spell">Doom</p>
-                <p class="spell">Havok</p>
-                
-            </div>
-            <div class="page">
-                <p class="spell">Raise</p>
-                <p class="spell">Mummify</p>
-                <p class="spell">Bloodpact</p>
-              
-            </div>
+            <div id="doomSpell" class="spells" v-if="doomKnown">Doom</div>
+            <div id="chaosSpell" class="spells" v-if="chaosKnown" >Chaos</div>
+            <div id="havokSpell" class="spells" v-if="havokKnown">Havok</div>
+            
         </div>
     </div>
   </div>
@@ -35,7 +27,17 @@ export default {
   computed: {
       spellDisplay(){
           return this.$store.state.spellbook.image;
-      }
+      },
+      
+      doomKnown() {
+        return this.$store.state.stats.spells.doom;
+    },
+     chaosKnown() {
+        return this.$store.state.stats.spells.chaos;
+    },
+    havokKnown() {
+        return this.$store.state.stats.spells.havok;
+    },
   },
 };
 
@@ -48,19 +50,14 @@ export default {
         margin-top: -24px;
         color: white;
     }
-    .page {
-       
-        float: left;
-        width: 50%;
-
-        
-    }
+  
     .spell {
         color: black;
     }
 
     .spell:hover{
         color: red;
+        
     }
 
     .spellBook {
@@ -79,7 +76,7 @@ export default {
         float:left;
         width: 294px;
         height: 196px;
-        background-color: black;
+        background-color: #340004;
         border: wheat groove 2px;
         border-radius: 2px;
         background-image: URL("../../public/spellbook.png");
@@ -87,5 +84,27 @@ export default {
 
     p {
         font-size: 12px;
+    }
+
+    #doomSpell {
+        position: absolute;
+        margin-top: 70px;
+        margin-left: -60px;
+    }
+
+    #chaosSpell {
+        position: absolute;
+        margin-top: 30px;
+        margin-left: -60px;
+    }
+
+     #havokSpell {
+        position: absolute;
+        margin-top: 30px;
+        margin-left: 60px;
+    }
+
+    #doomSpell:hover,#chaosSpell:hover,#havokSpell:hover {
+        color: greenyellow;
     }
 </style>

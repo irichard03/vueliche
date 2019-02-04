@@ -3,7 +3,7 @@
   <div class="dungeonDisplay">
     <div id="container">
       <img class="dungeon" v-bind:src="dungeonDisplay" />
-      <img class="opponent" v-bind:src="monsterDisplay" />
+      <img class="opponent" v-if="!clearedCheck" v-bind:src="monsterDisplay" />
       <img class="bonus" v-bind:src="bonusDisplay" />
     </div>
   </div>
@@ -29,6 +29,10 @@ export default {
           else {
               return this.$store.state.rooms[this.$store.state.currentRoom].monster2;
           }
+      },
+
+      clearedCheck(){
+          return this.$store.state.rooms[this.$store.state.currentRoom].cleared;
       },
       
   },

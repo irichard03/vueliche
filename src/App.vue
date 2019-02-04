@@ -63,7 +63,8 @@ ul,li {
 
 a {
   text-decoration: underline;
-  color: gold;
+  color: wheat;
+  text-decoration: none;
 }
 a:hover {
   color: greenyellow;
@@ -72,5 +73,12 @@ a:hover {
 label{
   padding: 20px;
 }
+
+.topNav {
+  margin-left: -80px;
+  margin-right: auto;
+}
+
+
 
 </style>
