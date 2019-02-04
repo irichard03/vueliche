@@ -10,6 +10,8 @@ export default new Vuex.Store({
         loggedIn: false,
         currentRoom: 0,
         hasKey: false,
+        token: null,
+        notStarted: true,
         inventory: {
            hat: "nothing.png",
            staff: "nothing.png",
@@ -17,7 +19,7 @@ export default new Vuex.Store({
            image: "skeleton.png"
 
         },
-        messenger: "Please register",
+        messenger: "Already registered? Please sign in.",
         spellbook: {
             image: "spellbook.png"
         },
@@ -192,10 +194,30 @@ export default new Vuex.Store({
 
         updateLoggedInState(state, truthiness){
             this.state.loggedIn = truthiness;
+        },
+
+        updateGameState(state, truthiness) {
+            this.state.notStarted = truthiness;
         }
 
     },
     actions: {
+
+        userLogin( context, user) {
+            axios.post( "/login", user ).then( (response) => {
+                if (response.data === null) {
+                    context.commit( "updateMessengerState", "User not found, please try again or register." );
+                }
+
+                else {
+                    context.commit( "updateLoggedInState", true );
+                    context.commit( "updateMessengerState", "Logged in as:" + response.data.email );
+                }
+            }).catch( (error) => {
+                throw error;
+            });  
+        },
+
         nextRoom( context, direction ) {
             if ( direction === "North" ) {
                 let myRoom = context.state.currentRoom;
@@ -283,6 +305,10 @@ export default new Vuex.Store({
 
         updateLoggedInState(context, payload) {
             context.commit("updateLoggedInState", payload);
+        },
+
+        updateGameState(context, payload) {
+            context.commit("updateGameState", payload);
         }
     }
 });

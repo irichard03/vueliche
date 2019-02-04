@@ -2,15 +2,20 @@
 <template>
   <div id="SignUp">
     <div class="container">
-      <h2>Please Register</h2>
+      <h2>Register</h2>
       <form @submit.prevent="handleFormSubmit">
+        <label>Email</label>
         <input v-model="user.email" class="input" placeholder="vue@lich.com">
+        <label>Password</label>
         <input v-model="user.password" class="input" placeholder="password">
+        <label>Confirm Password</label>
         <input v-model="user.passwordConfirm" class="input" placeholder="confirm password">
         <button type="submit">Submit</button>
       </form>
-      <router-link to="/signin">Sign In</router-link>
-      <h3>{{displayMessenger}}</h3>
+      <div class="linkContainer">
+         <h3 class="messenger">{{displayMessenger}}</h3>
+        <router-link class="routerLink" to="/signin">Sign In</router-link>
+      </div>
     </div>
   </div>
 </template>
@@ -46,8 +51,9 @@ export default {
           "Passwords do not match, please re-enter"
         );
       }
-      this.$store.dispatch("register", this.user);
-      alert("REGISTERED!");
+      else {
+        this.$store.dispatch("register", this.user);
+      }
     }
   },
   computed: {
@@ -74,12 +80,37 @@ export default {
   background-color: black;
   border: darkslategray solid 1px;
   width: 400px;
-  height: 400px;
+  height: 500px;
   margin-left: auto;
   margin-right: auto;
 }
 
-h3 {
+.messenger {
   color: white;
 }
+
+.routerLink {
+  color: white;
+  margin-top: 40px;
+  position: bottom;
+}
+
+.linkContainer {
+  margin-top: 20px;
+}
+
+label,input, button {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+  margin-bottom: 4px;
+}
+
+button {
+  width: 80px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 </style>

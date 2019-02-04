@@ -38,9 +38,9 @@ export default {
       // eslint-disable-next-line
       console.log(
         "password:" +
-          this.user.password +
-          "\nConfirm:" +
-          this.user.passwordConfirm
+          this.user.email +
+          "\nPassword:" +
+          this.user.password
       );
 
       if (!this.user.password && !this.user.email) {
@@ -59,7 +59,7 @@ export default {
           "You must enter your password"
         );
       }
-      this.$store.dispatch("register", this.user);
+      this.$store.dispatch("userLogin", this.user);
     }
   }
 };

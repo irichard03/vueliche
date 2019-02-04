@@ -3,7 +3,7 @@
   <div class="GamePage">
     <div id="container">
       <GameMenu v-if="loggedIn"/>
-      <SignIn v-if="authenticated"/>
+      <SignIn v-if="authenticated && !loggedIn"/>
       <SignUp v-if="!loggedIn && !authenticated"/>
     </div>
   </div>
