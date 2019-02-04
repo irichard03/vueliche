@@ -2,11 +2,15 @@
 <template>
   <div id="SignIn">
     <div class="container">
+      <h2>Sign In</h2>
       <form @submit.prevent="handleFormSubmit">
-        <input v-model="email" type="text" class="registration" placeholder="emai">
+        <label>Email</label>
+        <input v-model="email" type="text" class="registration" placeholder="Ozzymandias@decay.com">
+         <label>Password</label>
         <input v-model="password" type="password" class="registration" placeholder="password">
         <button type="submit" class="login">Login</button>
       </form>
+      <h3 class="messenger">{{displayMessenger}}</h3>
       <router-link to="/signup">Sign Up</router-link>
     </div>
   </div>
@@ -75,7 +79,7 @@ export default {
 
 .container {
   background-color: black;
-  border: darkslategray solid 1px;
+  border: wheat groove 2px;
   width: 400px;
   height: 400px;
   margin-left: auto;

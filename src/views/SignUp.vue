@@ -36,13 +36,7 @@ export default {
   },
   methods: {
     handleFormSubmit: function() {
-      // eslint-disable-next-line
-      console.log(
-        "password:" +
-          this.user.password +
-          "\nConfirm:" +
-          this.user.passwordConfirm
-      );
+      this.playSound('BELLS.mp3');
 
       if (this.user.password != this.user.passwordConfirm) {
         alert("DOES NOT MATCH");
@@ -54,8 +48,17 @@ export default {
       else {
         this.$store.dispatch("register", this.user);
       }
+    },
+
+    playSound(sound) {
+      if (sound) {
+        var audio = new Audio(sound);
+        audio.play();
+      }
     }
   },
+
+  
   computed: {
     displayMessenger() {
       return this.$store.state.messenger;
@@ -78,21 +81,15 @@ export default {
 
 .container {
   background-color: black;
-  border: darkslategray solid 1px;
+  border: wheat groove 2px;
   width: 400px;
-  height: 500px;
+  height: 100%;
   margin-left: auto;
   margin-right: auto;
 }
 
 .messenger {
   color: white;
-}
-
-.routerLink {
-  color: white;
-  margin-top: 40px;
-  position: bottom;
 }
 
 .linkContainer {

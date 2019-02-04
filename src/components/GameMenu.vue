@@ -30,7 +30,7 @@ export default {
 }
 
 .menuItems {
-    color: white;
+    color: wheat;
     display: inline-block;
     width: 100%;
     margin-top: 5%;

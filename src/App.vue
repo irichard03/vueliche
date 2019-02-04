@@ -4,9 +4,11 @@
     <div id="app">
       <div class="topNav">
         <ul>
-          <li id="github">Git</li>
-          <li id="title">Vue Liche</li>
-          <li id="vue"><font-awesome-icon icon="coffee" /></li>
+          <div>
+            <li id="github"><a href="https://github.com/irichard03/vueliche">Git</a></li>
+            <li id="title"><a href="#">Vue Liche</a></li>
+            <li id="vue"><a href="https://vuejs.org">Vue</a></li>
+          </div>
         </ul>
       </div>
       <router-view/>
@@ -21,20 +23,8 @@ export default {
 
   created: function() {
     window.addEventListener("keydown", this.getInput);
-  },
-  methods: {
-    getInput: function(event) {
-      if (event.key === "ArrowUp") {
-        this.$store.dispatch("nextRoom", "North");
-      } else if (event.key === "ArrowDown") {
-        this.$store.dispatch("nextRoom", "South");
-      } else if (event.key === "ArrowLeft") {
-        this.$store.dispatch("nextRoom", "West");
-      } else if (event.key === "ArrowRight") {
-        this.$store.dispatch("nextRoom", "East");
-      }
-    }
   }
+  
 };
 </script>
 
@@ -49,7 +39,7 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color: white;
   top: 0;
   left: 0;
   position: fixed;
@@ -67,6 +57,20 @@ h1 {
 }
 ul,li {
   display: inline-block;
-  width: 33%;
+  margin-left: 20px;
+  margin-right: 20px;
 }
+
+a {
+  text-decoration: underline;
+  color: gold;
+}
+a:hover {
+  color: greenyellow;
+}
+
+label{
+  padding: 20px;
+}
+
 </style>

@@ -55,7 +55,7 @@ export default {
         width: 684px;
         height: 396px;
         background-color: rgb(0, 95, 130);
-        border: gold groove 2px;
+        border: wheat groove 2px;
         border-radius: 2px;
     }
 

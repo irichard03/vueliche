@@ -9,13 +9,13 @@
                 <p class="spell">Chaos</p>
                 <p class="spell">Doom</p>
                 <p class="spell">Havok</p>
-                <p class="spell">Slay</p>
+                
             </div>
             <div class="page">
                 <p class="spell">Raise</p>
                 <p class="spell">Mummify</p>
                 <p class="spell">Bloodpact</p>
-                <p class="spell">Soul Rip</p>
+              
             </div>
         </div>
     </div>
@@ -80,8 +80,12 @@ export default {
         width: 294px;
         height: 196px;
         background-color: black;
-        border: gold groove 2px;
+        border: wheat groove 2px;
         border-radius: 2px;
         background-image: URL("../../public/spellbook.png");
+    }
+
+    p {
+        font-size: 12px;
     }
 </style>

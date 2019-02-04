@@ -43,7 +43,7 @@ export default {
         background-color: blue;
         border: red solid 1px;
         
-        border: 2px white solid;
+        border: 2px wheat solid;
         border-radius: 4px
     }
     

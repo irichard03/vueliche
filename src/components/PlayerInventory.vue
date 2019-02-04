@@ -86,7 +86,7 @@ export default {
         height: 396px;
         align-content: left;
         background-color: black;
-        border: gold groove 2px;
+        border: wheat groove 2px;
         border-radius: 2px;
     }
      .inventoryText {
