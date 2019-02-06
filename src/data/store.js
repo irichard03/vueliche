@@ -17,8 +17,12 @@ export default new Vuex.Store({
             knownSpells: 2,
             spells:{
                 chaos: true,
+                chaosCast:false,
+                chaosImage: "fire.png",
                 doom: false,
-                havok: true
+                doomCast:true,
+                havok: true,
+                havokCast: true
             }
             
         },
@@ -210,6 +214,10 @@ export default new Vuex.Store({
 
         updateGameState(state, truthiness) {
             this.state.notStarted = truthiness;
+        },
+
+        updateChaosState(state, truthiness) {
+            this.state.stats.spells.chaosCast = truthiness;
         }
 
     },
@@ -321,6 +329,10 @@ export default new Vuex.Store({
 
         updateGameState(context, payload) {
             context.commit("updateGameState", payload);
+        },
+
+        updateChaosState(context, payload) {
+            context.commit("updateChaosState", payload);
         }
     }
 });

@@ -18,8 +18,8 @@
         <div class="soundTrap" @click.prevent="playSound('DANCEMAC.mp3')" v-if="notStarted">
           <h1>Instructions:</h1>
           <p>Your last memory after contracting the plague was a strange skeletal creature standing over you with promises of eternal life...</p>
-          <p>You have been transformed into a Liche, a powerful undead wizard, but your power comes at a terrible cost.  Only the souls of the living can sustain you.</p>
-           <h2>How to play</h2>
+          <p>You have been transformed into a Liche, a powerful undead wizard, but your power comes at a terrible cost. Only the souls of the living can sustain you.</p>
+          <h2>How to play</h2>
           <p>Use the arrow buttons on the left to travel, and the spell book on the right to destroy all that oppose you! Click on items in the window above to equip them, can you collect all 3 Liche Tokens?</p>
           <h2 class="clickMe">Click Here to Start</h2>
         </div>
@@ -57,7 +57,7 @@ export default {
   methods: {
     playSound(sound) {
       if (sound) {
-        var audio = new Audio(sound);
+        let audio = new Audio(sound);
         audio.play();
       }
       this.$store.dispatch("updateGameState", false);
@@ -112,5 +112,4 @@ p {
 .clickMe:hover {
   color: greenyellow;
 }
-
 </style>
