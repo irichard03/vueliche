@@ -44,7 +44,8 @@ export default {
 
   methods: {
     castChaos() {
-        this.$store.dispatch("updateMessenger", "You cast chaos, fire rains down from the sky!");
+        alert(this.$store.state.chaosCast
+        )
         this.playSound("splash.mp3");
         setTimeout( () => {
            this.$store.dispatch("updateChaosState", false);
@@ -151,7 +152,7 @@ p {
 
 @keyFrames fireDrop {
     0% {margin-top: -500px;}
-    100% {margin-top: -300px;}
+    100% {margin-top: -360px;}
 }
 
 </style>

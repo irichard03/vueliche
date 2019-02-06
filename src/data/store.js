@@ -65,7 +65,7 @@ export default new Vuex.Store({
                 number: 1,
                 coords: [1, 0],
                 image: "back2.png",
-                description: "Before you stands Grimaldo, you probably should have paid him back while you were alive.  You will have to deal with this knave before venturing onward.  The way to the south is blocked by a river."
+                description: "Before you stands Grimaldo, you probably should have paid him back while you were alive.  You will have to deal with this knave before venturing onward.  The way to the south is blocked by a river.",
                 East: 1,
                 North: 1,
                 West: 1,
@@ -143,7 +143,7 @@ export default new Vuex.Store({
                 number: 6,
                 coords: [0, 2],
                 image: "back7.png",
-                description: "Fool, you never go full skeletor! Shouts the monk. North and West are impassible due to contstruction of bypass.  It should improve the cart traffic in the region immensely.",
+                description: "Fool, you never go full skeletor! Shouts the monk. North and West are impassible due to contstruction of a bypass.  It should improve the cart traffic in the region immensely.",
                 East: 1,
                 North: -1,
                 West: -1,
@@ -158,7 +158,7 @@ export default new Vuex.Store({
                 number: 7,
                 coords: [1, 2],
                 image: "back8.png",
-                description: "At last you have reached the abbey, your guidance counselor from 17 years ago stands before you, your vengeance is at hand!"
+                description: "At last you have reached the abbey, your guidance counselor from 17 years ago stands before you, your vengeance is at hand!",
                 East: -1,
                 North: -1,
                 West: -1,
