@@ -56,10 +56,9 @@ export default new Vuex.Store({
                 South: -1,
                 requiresKey: false,
                 locked: false,
-                cleard: false,
+                cleared: false,
                 monster: "Monk.png",
-                monster2: "Rogue.png",
-                treasure: "redchest.png"
+                body: "monkbody.png"
             },
 
             {
@@ -73,9 +72,9 @@ export default new Vuex.Store({
                 South: -1,
                 requiresKey: false,
                 locked: false,
+                cleared: false,
                 monster: "Mage.png",
-                monster2: "Rogue.png",
-                treasure: "skullCoin.png"
+
 
             },
 
@@ -90,25 +89,23 @@ export default new Vuex.Store({
                 South: -1,
                 requiresKey: false,
                 locked: false,
-                monster: "Rogue.png",
-                monster2: "Monk.png",
-                treasure: "downSkull.png"
+                cleared: false,
+                monster: "Monk.png",
             },
 
             {
                 number: 3,
                 coords: [0, 1],
                 image: "back5.png",
-                description: "You awake from the darkness, cold...so very cold.  You feel a great emptiness inside you, like a hunger, only worse.  Before you lies a black phylactery, a grim looking thing.",
+                description: "Chaos is a pretty good spell, but perhaps it's time to find some more?",
                 East: -1,
                 North: 1,
                 West: -1,
                 South: -1,
                 requiresKey: false,
                 locked: false,
+                cleared: false,
                 monster: "Monk.png",
-                monster2: "Monk.png",
-                treasure: "greenchest.png"
 
             },
 
@@ -116,15 +113,14 @@ export default new Vuex.Store({
                 number: 4,
                 coords: [1, 1],
                 image: "back4.png",
-                description: "Before you stands Grimaldo, you probably should have paid him back while you were alive.",
+                description: "A thief can steal your money, but a liche can steal your soul..",
                 East: 1,
                 North: -1,
                 West: 1,
                 South: 1,
                 requiresKey: true,
+                cleared: false,
                 monster: "Rogue.png",
-                monster2: "Rogue.png",
-                treasure: "downSkull.png"
                 
             },
 
@@ -132,64 +128,60 @@ export default new Vuex.Store({
                 number: 5,
                 coords: [2, 1],
                 image: "back6.png",
-                description: "A holy man stands before you, a divine light radiates from his hands as he signs the cross in the air before him.  It's really bright, and you don't have eyelids anymore.",
+                description: "Mages, why does it always got to be mages..",
                 East: -1,
                 North: 1,
                 West: 1,
                 South: -1,
                 requiresKey: false,
                 locked: false,
+                cleared: false,
                 monster: "Mage.png",
-                monster2: "Mage.png",
-                treasure: "downSkull.png"
             },
 
             {
                 number: 6,
                 coords: [0, 2],
                 image: "back7.png",
-                description: "You awake from the darkness, cold...so very cold.  You feel a great emptiness inside you, like a hunger, only worse.  Before you lies a black phylactery, a grim looking thing.",
+                description: "Fool, you never go full skeletor! Shouts the monk.",
                 East: 1,
                 North: -1,
                 West: -1,
                 South: 1,
                 requiresKey: true,
                 locked: true,
+                cleared: false,
                 monster: "Monk.png",
-                monster2: "Skeleton.png",
-                treasure: "downSkull.png"
             },
 
             {
                 number: 7,
                 coords: [1, 2],
                 image: "back8.png",
-                description: "Before you stands Grimaldo, you probably should have paid him back while you were alive.",
+                description: "You'll never reach the abbey alive! the mage shouts, clearly he hasn't been paying attention to the overarching plot of this game.",
                 East: -1,
                 North: -1,
                 West: -1,
                 South: -1,
                 requiresKey: false,
                 locked: false,
+                cleared: false,
                 monster: "Mage.png",
-                monster2: "Skeleton.png",
-                treasure: "downSkull.png"
             },
 
             {
                 number: 8,
                 coords: [2, 2],
                 image: "back9.png",
-                description: "A holy man stands before you, a divine light radiates from his hands as he signs the cross in the air before him.  It's really bright, and you don't have eyelids anymore.",
+                description: "At last you have reached the abbey, your guidance counselor from 17 years ago stands before you, your vengeance is at hand!",
                 East: -1,
                 North: -1,
                 West: -1,
                 South: 1,
                 requiresKey: false,
                 locked: false,
-                monster: "Skeleton.png",
-                monster2: "Skeleton.png",
-                treasure: "downSkull.png"
+                cleared: false,
+                monster: "Mage.png",
             },
         ],
     },

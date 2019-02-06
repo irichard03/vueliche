@@ -2,7 +2,7 @@
 <template>
   <div class="messageWindow">
     <div id="container">
-       <marquee behavior="scroll" class="messages" direction="up" scrollamount="1">{{descriptionDisplay}}</marquee>
+       <p class="messages" direction="up" scrollamount="1">{{descriptionDisplay}}</p>
 
        
     </div>
@@ -51,7 +51,8 @@ export default {
         border: red solid 1px;
         background-image: linear-gradient(blue,#002b3d);
         border: 2px wheat solid;
-        border-radius: 4px
+        border-radius: 4px;
+        overflow: auto;
     }
     
 </style>

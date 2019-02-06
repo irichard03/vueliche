@@ -15,7 +15,7 @@
           <MagicWindow/>
         </div>
 
-        <div class="soundTrap" @click.prevent="playSound('DANCEMAC.mp3')" v-if="notStarted">
+        <div class="soundTrap" @click.prevent="playSound(!'DANCEMAC.mp3')" v-if="notStarted">
           <h1>Instructions:</h1>
           <p>Your last memory after contracting the plague was a strange skeletal creature standing over you with promises of eternal life...</p>
           <p>You have been transformed into a Liche, a powerful undead wizard, but your power comes at a terrible cost. Only the souls of the living can sustain you.</p>
@@ -55,7 +55,9 @@ export default {
     }
   },
   methods: {
+    
     playSound(sound) {
+      
       if (sound) {
         let audio = new Audio(sound);
         audio.play();
