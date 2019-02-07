@@ -28,7 +28,7 @@ x JWT not implemented
 ### Credits
 
 * All credit due to respective artists & content Creators
-    Room Backgroudn Images: 
+    Room Background Images: 
     Gabriel De Aguiar
     https://opengameart.org/users/nidhoggn 
     https://www.patreon.com/nidhoggn
