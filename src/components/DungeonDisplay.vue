@@ -78,7 +78,7 @@ p {
   margin-left: -400px;
   margin-top: 150px;
   height: 100px;
-  width: 400px;
+  width: 100px;
 }
 
 </style>

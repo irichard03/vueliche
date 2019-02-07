@@ -2,7 +2,6 @@ const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcryptjs');
 const salt = bcrypt.genSaltSync(10);
-const jwt = require("jsonwebtoken");
 const config = require("./config");
 const mongoose = require('mongoose');
 const db = require("../models");
@@ -27,33 +26,34 @@ router.post("/checkuser", ( request, response) => {
 });
 
 router.post("/register", ( request, response) => {
-    let token = jwt.sign({id: request.body.email}, config.secret, {expiresIn: 259200});
     let user = request.body.email;
+    let password = request.body.password;
     db.users.create({
-        email: request.body.email,
-        password: bcrypt.hashSync(request.body.password, salt),
-        authorization: request.body.authorization
+        email: user,
+        password: bcrypt.hashSync(password, salt)
     }).then(function() {
-        response.send({ auth: true, token: token, user: user});
+        response.send("200 OK");
     }).catch(function(error){
         response.json(error);
     });
 });
 
 router.post("/login", ( request, response) => {
-    let user = request.body.email;
     db.users.findOne({ email: request.body.email}).then((data) => {
         if(!data) {
             response.send("Email address not found, please try again or register.");
-            let verifiedPassword = bcrypt.compareSync(request.body.password, data.password);
-            if(!verifiedPassword) {
-                response.send("Email address not found, please try again or register.");
-                let token = jwt.sign({id: request.body.email}, config.secret, {expiresIn: 259200});
-                response.send(({ auth: true, token: token, user: user}));
-            }   
+        }    
+            
+        let verifiedPassword = bcrypt.compareSync(request.body.password, data.password);
+        if(!verifiedPassword) {
+            response.sendStatus(401);
         }
+        else {
+            response.json(data);
+        }
+        
     }).catch((error) => {
-        response.json(error);
+        throw (error);
     });
 });
     

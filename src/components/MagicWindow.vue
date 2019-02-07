@@ -44,8 +44,6 @@ export default {
 
   methods: {
     castChaos() {
-        alert(this.$store.state.chaosCast
-        )
         this.playSound("splash.mp3");
         setTimeout( () => {
            this.$store.dispatch("updateChaosState", false);

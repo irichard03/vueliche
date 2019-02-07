@@ -5,9 +5,9 @@
       <h2>Sign In</h2>
       <form @submit.prevent="handleFormSubmit">
         <label>Email</label>
-        <input v-model="email" type="text" class="registration" placeholder="Ozzymandias@decay.com">
+        <input v-model="user.email" type="email" class="registration" placeholder="vue@liche.com">
          <label>Password</label>
-        <input v-model="password" type="password" class="registration" placeholder="password">
+        <input v-model="user.password" type="password" class="registration" placeholder="password">
         <button type="submit" class="login">Login</button>
       </form>
       <h3 class="messenger">{{displayMessenger}}</h3>
@@ -39,31 +39,29 @@ export default {
 
   methods: {
     handleFormSubmit: function() {
-      // eslint-disable-next-line
-      console.log(
-        "password:" +
-          this.user.email +
-          "\nPassword:" +
-          this.user.password
-      );
-
+    
       if (!this.user.password && !this.user.email) {
+        alert("Not user and not email triggered" );
         this.$store.dispatch(
-          "UpdateMessengerState",
+          "updateMessengerState",
           "You must enter a username AND password."
         );
       } else if (!this.user.email) {
+        alert("not email triggered");
         this.$store.dispatch(
-          "UpdateMessengerState",
+          "updateMessengerState",
           "You must enter your email."
         );
       } else if (!this.user.password) {
+         alert("not email triggered");
         this.$store.dispatch(
-          "UpdateMessengerState",
-          "You must enter your password"
+          "updateMessengerState",
+          "You must enter your password."
         );
       }
-      this.$store.dispatch("userLogin", this.user);
+      else {
+        this.$store.dispatch("userLogin", this.user);
+      } 
     }
   }
 };

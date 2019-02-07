@@ -217,13 +217,13 @@ export default new Vuex.Store({
 
         userLogin( context, user) {
             axios.post( "/login", user ).then( (response) => {
-                if (response.data === null) {
+                if ( response === 404 ) {
                     context.commit( "updateMessengerState", "User not found, please try again or register." );
                 }
 
                 else {
                     context.commit( "updateLoggedInState", true );
-                    context.commit( "updateMessengerState", "Logged in as:" + response.data.email );
+                    context.commit( "updateMessengerState", "Logged in as: " + response.data.email );
                 }
             }).catch( (error) => {
                 throw error;
@@ -300,14 +300,14 @@ export default new Vuex.Store({
                 }
                 else {
                     context.commit( "updateAuthState", true );
-                    context.commit( "updateMessengerState", "A user with that email address already exists, please sig n in." );
+                    context.commit( "updateMessengerState", "A user with that email address already exists, please sign in." );
                 }
             }).catch( (error) => {
                 throw error;
             });
         },
 
-        updateMessenger( context, payload) {
+        updateMessengerState( context, payload) {
             context.commit( "updateMessengerState", payload);
         },
 

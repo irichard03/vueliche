@@ -18,14 +18,12 @@ You see, that's because you've been turned into a Liche! You wear a magical phyl
 You have vowed to destroy Apathy Abbey, to teach the monks that reside within a lesson for kicking you out many years ago.  Make your way through the wilderness, find your way back to the abbey, your old guidance counselor awaits.
 
 #### Technologies
-
-* JWT - User authentication
 * VUE - Front End -
 * VUEX - State Store for Vue
 * VUE-ROUTER - Routing for Vue
-* SASSY CSS - User Interface
 * Mongoose - Database for storing player crafting inventory.
-
+x SASSY css not implemented
+x JWT not implemented
 
 ### Credits
 

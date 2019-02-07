@@ -7,9 +7,9 @@
         <label>Email</label>
         <input v-model="user.email" class="input" placeholder="vue@lich.com">
         <label>Password</label>
-        <input v-model="user.password" class="input" placeholder="password">
+        <input v-model="user.password" class="input" type="password" placeholder="password">
         <label>Confirm Password</label>
-        <input v-model="user.passwordConfirm" class="input" placeholder="confirm password">
+        <input v-model="user.passwordConfirm" class="input" type="password" placeholder="confirm password">
         <button type="submit">Submit</button>
       </form>
       <div class="linkContainer">
@@ -38,13 +38,19 @@ export default {
     handleFormSubmit: function() {
       this.playSound('BELLS.mp3');
 
-      if (this.user.password != this.user.passwordConfirm) {
-        alert("DOES NOT MATCH");
+      if(!this.user.email || !this.user.password || !this.user.passwordConfirm){
         this.$store.dispatch(
-          "UpdateMessengerState",
+          "updateMessengerState",
+          "All fields are required."
+        );
+      }
+      else if (this.user.password != this.user .passwordConfirm) {
+        this.$store.dispatch(
+          "updateMessengerState",
           "Passwords do not match, please re-enter"
         );
       }
+      
       else {
         this.$store.dispatch("register", this.user);
       }
